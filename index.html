@@ -149,49 +149,105 @@ iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
 
 
-:root { --side-bar-bg-color: white; --window-border: none; --search-select-bg-color: #575c61; --active-file-bg-color: #f1f4f5; --item-hover-bg-color: #f1f4f5; --item-hover-text-color: black; --control-text-color: #555; }
-html { font-size: 12pt; }
-#write { font-family: STIX2Text, "Times New Roman", serif; line-height: 1.5em; padding: 5% 10% 10%; }
-.file-list-item-summary { height: 36px; }
-.file-list-item { padding-bottom: 18px; padding-top: 18px !important; }
-#sidebar-loading-template.file-list-item { padding-top: 0px !important; }
-a, a:visited { color: rgb(170, 0, 0); }
-h1, h2, h3, h4, h5, h6 { font-family: inherit; line-height: 1.5em; margin-bottom: 1em; margin-top: 1em; }
-h1 { font-size: 2.4em; }
-#write h1 { text-align: center; }
-h2 { font-size: 1.8em; }
-h3 { font-size: 1.4em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1.1em; }
-h6 { font-size: 1em; }
-p { margin-top: 1em; margin-bottom: 1em; text-align: justify; }
-pre, code { font-family: "Latin Modern Mono Light", "Latin Modern Mono", monospace !important; }
-.footnotes { display: list-item; margin-left: 1em; }
-.md-fences { border: 1px solid; }
-.md-fences.md-fences-with-lineno { border: none; }
-.CodeMirror-linenumber { color: rgb(51, 51, 51); }
-.in-text-selection, ::selection, .CodeMirror-selected { background: var(--search-select-bg-color); text-shadow: none; color: var(--search-select-text-color)  !important; }
-a.md-toc-inner { color: var(--text-color); }
-.cm-s-typora-default .cm-link { color: rgb(170, 0, 0); text-decoration: underline; }
-.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property { color: black; }
-#typora-source .CodeMirror-lines { -webkit-font-smoothing: auto; max-width: 1000px; }
-.md-def-name::before, .md-def-name::after { color: rgb(45, 45, 45); }
-sup.md-footnote { background-color: initial; color: inherit; }
-mark { background: rgb(255, 243, 135); }
-td, th { border: 1px solid; padding-left: 1ch; padding-right: 1ch; }
-th { border-bottom: 0px rgb(51, 51, 51); padding-top: 2px; background: rgb(87, 92, 97); border-top-color: rgb(51, 51, 51); border-right-color: rgb(51, 51, 51); border-left-color: rgb(51, 51, 51); color: rgb(243, 243, 243); }
-pre.md-meta-block { border: 1px solid rgb(162, 169, 177); background-color: rgb(248, 249, 250); padding: 5px; margin-bottom: 1em; }
-.task-list-item input::before { content: "√"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
-.task-list-item input:checked::before, .task-list-item input[checked]::before { color: inherit; }
-.md-task-list-item > input { top: auto; margin-left: -1.1em; font-size: 1.3em; margin-top: 0px; -webkit-appearance: none; }
-.md-task-list-item input::before { content: "☐"; display: inline-block; width: 1.25rem; height: 1.6rem; vertical-align: middle; text-align: center; color: rgb(187, 187, 187); background-color: inherit; }
-.md-task-list-item input:checked::before, .md-task-list-item input[checked]::before { color: inherit; content: "☑"; }
-.task-list-item { padding-left: 1.5em; }
-blockquote { font-style: italic; padding: 0.25em 24px; position: relative; color: rgb(56, 56, 56); border-left: 2px solid; }
-#write > blockquote { padding: 0.25em 30px; margin-left: -32px; width: calc(100% + 32px); }
-#write > .md-fences-with-lineno { margin-left: -33px; color: black; }
-.CodeMirror-linenumber { min-width: 25px; }
-.md-header { font-size: inherit !important; }
+:root { --active-file-bg-color: rgba(32, 43, 51, 0.63); --active-file-text-color: white; --bg-color: #f9f5ed; --text-color: #6e4832; --side-bar-bg-color: #f5f5f5; --control-text-color: #666; --primary-color: #6e4832; }
+html { color: rgb(110, 72, 50); background: rgb(249, 245, 237); text-size-adjust: 100%; text-rendering: optimizelegibility; font-size: 16px; -webkit-font-smoothing: initial; }
+content { background: rgb(249, 245, 237); }
+#write { max-width: 960px; padding-top: 2em; padding-left: 60px; padding-right: 60px; min-height: calc(100vh - 6em); -webkit-font-smoothing: antialiased; font-size: 16px; }
+.typora-node #write { min-height: calc(100% - 6em); }
+pre.md-meta-block { color: rgba(146, 115, 91, 0.81); padding: 1em; border-radius: 2px; font-size: 14px; background: rgba(251, 246, 222, 0.5); }
+@media screen and (max-width: 800px) {
+  html { font-size: 14px; }
+  #write { padding-left: 30px; background: rgb(249, 245, 237); padding-right: 30px; font-size: 14px; }
+}
+@media screen and (min-width: 1100px) {
+  body, #footer-word-count-info { background: rgb(245, 245, 245); }
+  body.pin-outline, .pin-outline #footer-word-count-info, .pin-outline footer { background: rgb(249, 245, 237); }
+  #write { max-width: 1000px; padding: 40px 60px; background: rgb(249, 245, 237); margin: 3em auto; }
+  .pin-outline #write { max-width: 1000px; background: rgb(249, 245, 237); margin: 0px; border: 0px; padding-left: 60px; padding-right: 60px; }
+  footer { background-color: transparent; }
+}
+@media screen and (min-width: 1300px) {
+  body.pin-outline, .pin-outline #footer-word-count-info, .pin-outline footer { background: rgb(249, 245, 237); }
+  .pin-outline #write { max-width: 1000px; padding: 40px 60px; background: rgb(249, 245, 237); margin: 3em auto; }
+  .pin-outline footer { background-color: transparent; }
+  #footer-word-count-info { background: rgb(245, 245, 245); }
+}
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section { margin: 0px; padding: 0px; }
+article, aside, details, figcaption, figure, footer, header, menu, nav, section { display: block; }
+audio, canvas, video { display: inline-block; }
+body, button, input, select, textarea { font: 400 1em/1.8 "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans; }
+body { font-family: "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans; }
+h1, h2, h3, h4, h5, h6 { font-family: "font/han.otf", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans; -webkit-font-smoothing: initial; font-weight: 100; color: var(--text-color); line-height: 1.35; font-variant-numeric: lining-nums; margin-bottom: 1em; }
+em { font-family: "font/han.otf", Georgia-Italic, STSongti-SC-Light, serif; }
+strong em, em strong { font-family: "font/han.otf", Georgia-BoldItalic, STSongti-SC-Regular, serif; }
+table { border-collapse: collapse; border-spacing: 0px; }
+fieldset, img { border: 0px; }
+img { background: white; border-radius: 0.2rem; padding: 0.3rem; box-shadow: gray 1px 2px 4px; text-align: center; }
+blockquote { position: relative; color: rgba(146, 115, 91, 0.81); font-weight: 400; border-left: 2px solid rgb(110, 72, 50); padding-left: 1rem; margin: 1em 3em 1em 1em; }
+@media only screen and (max-width: 640px) {
+  blockquote { margin: 1em 0px; }
+}
+acronym, abbr { border-bottom: 1px dotted; font-variant: normal; }
+abbr { cursor: help; }
+address, caption, cite, code, dfn, th, var { font-style: normal; font-weight: 400; }
+ul, ol { list-style: none; }
+caption, th { text-align: left; }
+q::before, q::after { content: ""; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; }
+:root sub, :root sup { vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+a { color: rgb(68, 132, 194); }
+a:hover { text-decoration: underline; }
+#write a { font-weight: normal; }
+#write a:hover { text-decoration: none; border-bottom: 1px solid rgb(68, 132, 194); }
+ins, a { text-decoration: none; }
+mark { background: rgb(255, 253, 209); border-bottom: 1px solid rgb(255, 237, 206); padding: 2px; margin: 0px 5px; }
+pre, code, pre tt { font-family: Courier, "Courier New", monospace; }
+#write .md-fences { border: 1px solid rgb(221, 221, 221); padding: 1em 0.5em; display: block; }
+hr { border-top: none; border-right: none; border-left: none; border-image: initial; border-bottom: 1px solid rgb(207, 207, 207); margin-bottom: 0.8em; height: 10px; }
+strong, b { font-weight: 700; }
+#write p, #write .md-fences, #write ul, #write ol, #write dl, #write form, #write hr, #write figure, #write-p, #write-pre, #write-ul, #write-ol, #write-dl, #write-form, #write-hr, #write-table, blockquote { margin-bottom: 1.2em; }
+html { font-family: "font/han.otf", "PingFang SC", Verdana, "Helvetica Neue", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write-h1, #write-h2, #write-h3, #write-h4, #write-h5, #write-h6 { margin-bottom: 0.6em; line-height: 1.35; color: rgb(110, 72, 50); font-weight: bolder; }
+#write h1, #write-h1 { font-size: 2.4em; padding-bottom: 0.3em; border-bottom: 3px double rgb(238, 238, 238); }
+#write h2, #write-h2 { font-size: 1.8em; }
+#write h3, #write-h3 { font-size: 1.6em; }
+#write h4, #write-h4 { font-size: 1.4em; }
+#write h5, #write h6, #write-h5, #write-h6 { font-size: 1.2em; }
+#write ul, #write-ul { margin-left: 1.3em; list-style: disc; }
+#write ol, #write-ol { list-style: decimal; margin-left: 1.9em; }
+#write li ul, #write li ol, #write-ul ul, #write-ul ol, #write-ol ul, #write-ol ol { margin-bottom: 0.8em; margin-left: 2em; }
+#write li ul, #write-ul ul, #write-ol ul { list-style: circle; }
+[mdtype="table_row"] > th, [mdtype="table_row"] > td { border: 1px solid rgb(221, 221, 221); padding: 0.5em 1em; color: rgba(110, 72, 50, 0.74); }
+#write table th, #write-table th { background: rgb(251, 251, 251); }
+#write table thead th, #write-table thead th { background: rgba(251, 240, 211, 0.76); }
+#write table caption { border-bottom: none; }
+#write em { font-weight: inherit; font-style: inherit; }
+li > p { margin-bottom: 0px !important; }
+#write img { max-width: 100%; }
+a.md-toc-inner { border-bottom: 0px !important; }
+.md-toc-h1:first-of-type:last-of-type { display: none; }
+.md-toc { font-size: inherit; }
+.md-toc-h1 .md-toc-inner { font-weight: normal; }
+.md-table-edit th { padding: 0px !important; border: 0px !important; }
+.mac-seamless-mode #write { min-height: calc((100vh - 6em) - 20px); }
+.typora-quick-open-item.active { color: var(--active-file-text-color); }
+.in-text-selection, ::selection { background: var(--active-file-bg-color); text-shadow: none; color: white; }
+.btn-primary { background-color: rgb(45, 45, 45); border-color: rgb(2, 2, 2); }
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary { background-color: rgb(78, 76, 78); border: rgb(78, 76, 78); }
+#preference-dialog .modal-content { background: rgb(110, 117, 122); --bg-color: #6e757a; --text-color: #f1f1f1; color: rgb(241, 241, 241); }
+sup.md-footnote { color: rgb(110, 72, 50); }
+.task-list { list-style: none !important; }
+.task-list-item input { width: 1.25rem; height: 1.25rem; display: block; -webkit-appearance: initial; left: -18px; }
+.task-list-item input:focus { outline: none; box-shadow: none; }
+.task-list-item input::before { border: 2px solid rgb(110, 72, 50); border-radius: 1.2rem; width: 1.2rem; height: 1.2rem; content: " "; transition: background-color 200ms ease-in-out 0s; display: block; }
+.task-list-item input:checked::before, .task-list-item input[checked]::before { -webkit-appearance: initial; background: rgb(110, 72, 50); border-width: 2px; display: inline-block; transition: background-color 200ms ease-in-out 0s; }
+.task-list-item input:checked::after, .task-list-item input[checked]::after { opacity: 1; }
+.task-list-item input::after { transition: opacity 0.05s ease-in-out 0s; transform: rotate(-45deg); position: absolute; top: 0.325rem; left: 0.28125rem; width: 0.6375rem; height: 0.4rem; border-width: 0px 0px 3px 3px; border-bottom-style: solid; border-left-style: solid; border-bottom-color: rgb(249, 245, 237); border-left-color: rgb(249, 245, 237); border-image: initial; border-top-style: initial; border-top-color: initial; border-right-style: initial; border-right-color: initial; content: " "; opacity: 0; }
+.task-list-done { text-decoration: line-through; }
+.md-grid-board a:hover, .md-grid-board a.md-active { border-color: rgb(161, 161, 161); background: rgb(249, 237, 197); }
+.md-grid-board tr[row="1"] a:hover, .md-grid-board tr[row="1"] a.md-active { background: rgb(94, 62, 43); }
 
  .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
 </style>
